@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Use environment variable for MongoDB connection string
-const MONGODB_URI_atlas = process.env.MONGODB_URL;
+const MONGODB_URI_atlas = process.env.MONGODB_URL
 
 const connectDB = mongoose.connect(MONGODB_URI_atlas, {
   useNewUrlParser: true,
