@@ -178,7 +178,18 @@ function shoesAnimation(){
 
   // Different animation parameters based on screen size
   const getShoesPosition = () => {
-    if (window.innerWidth <= 480) {
+   
+
+    if (window.innerWidth <= 390) {
+      // Small mobile
+      return {
+        top: "241%",
+        right: "38%",
+        rotate: "-46deg",
+        scale: 1,
+        duration: 1.8
+      };
+    } else if(window.innerWidth <= 480) {
       // Small mobile
       return {
         top: "265%",
@@ -224,7 +235,7 @@ function shoesAnimation(){
         trigger: ".page2",
         scroller: ".main",
         start: "top 90%",
-        end: "50% 50%",
+        end: "30% 50%",
         // markers: true,
         scrub: 0.8,
       };
@@ -380,20 +391,18 @@ function shoesAnimation2(){
   // Different animation parameters based on screen size
   const getShoesPosition2 = () => {
 
-    if (window.innerWidth <= 375) {
+    if (window.innerWidth <= 390) {
       // Small mobile
       return {
-        position: "absolute",
-        top: "1041%",
-        right: "08%",
+        top: "850%",
+        right: "07%",
         rotate: "-08deg",
-        scale: 0.6,
-        duration: 1.8
+        scale: 0.4,
+        duration: 2
       };
     } else if (window.innerWidth <= 480) {
       // Small mobile
       return {
-        position: "absolute",
         top: "1041%",
         right: "08%",
         rotate: "-08deg",
@@ -436,8 +445,8 @@ function shoesAnimation2(){
       return {
         trigger: ".page2",
         scroller: ".main",
-        start: "80% 90%",
-        end: "208% 10%",
+        start: "80% 95%",
+        end: "230% 10%",
         // markers: true,
         scrub: 0.8,
       };
