@@ -383,7 +383,7 @@ function shoesAnimation2(){
       // Small mobile
       return {
         position: "absolute",
-        top: "1047%",
+        top: "1041%",
         right: "08%",
         rotate: "-08deg",
         scale: 0.6,
@@ -426,7 +426,7 @@ function shoesAnimation2(){
         trigger: ".page2",
         scroller: ".main",
         start: "80% 90%",
-        end: "205% 10%",
+        end: "208% 10%",
         // markers: true,
         scrub: 0.8,
       };
