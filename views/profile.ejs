@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EvoTrek-Profile</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Hello, <%= user.name %> 👋</h1>
+
+        <% if (typeof message !== 'undefined' && message) { %>
+            <div class="alert <%= alertType === 'success' ? 'alert-success' : 'alert-error' %>">
+                <%= message %>
+            </div>
+        <% } %>
+
+        <div class="password-update">
+            <h2>Update Password</h2>
+            <form id="passwordForm" action="/update-password" method="POST">
+                <input type="hidden" name="userId" value="<%= user._id.toString() %>">
+                <input type="password" name="oldPassword" placeholder="Old Password" required>
+                <input type="password" name="newPassword" placeholder="New Password" required>
+                <button type="submit">Update Password</button>
+            </form>
+        </div>
+
+        <div class="order-history-header">
+            <h2>🛒 Your Order History</h2>
+            <% if (orders.length > 0) { %>
+            <form action="/clear-orders" method="POST" onsubmit="return confirm('Are you sure you want to clear your order history?');">
+                <input type="hidden" name="userId" value="<%= user._id.toString() %>">
+                <button type="submit" class="clear-history-btn">🗑️ Clear Order History</button>
+            </form>
+            <% } %>
+        </div>
+
+        <% if (orders.length === 0) { %>
+            <p class="no-orders">You haven't ordered anything yet.</p>
+        <% } else { %>
+            <% orders.forEach(order => {
+                const deliveryDate = new Date(order.date);
+                const randomDays = Math.floor(Math.random() * 5) + 3;
+                deliveryDate.setDate(deliveryDate.getDate() + randomDays);
+                // Skip Sunday
+                if (deliveryDate.getDay() === 0) {
+                    deliveryDate.setDate(deliveryDate.getDate() + 1);
+                }
+            %>
+            <div class="order-card">
+                <h3>Order Date: <%= new Date(order.date).toLocaleDateString() %></h3>
+                <h4>Delivery Date: <%= deliveryDate.toLocaleDateString() %></h4>
+
+                <div class="items-list">
+                    <% order.items.forEach(item => { %>
+                    <div class="item-card">
+                        <img src="<%= item.image %>" alt="Product Image">
+                        <div class="item-details">
+                            <h4><%= item.name %></h4>
+                            <p>Price: ₹<%= item.price %></p>
+                            <p>Quantity: <%= item.quantity %></p>
+                            <p>Size: <%= item.size %> | Color: <%= item.color %></p>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <h4>Total Paid: ₹<%= order.total %></h4>
+            </div>
+            <% }) %>
+        <% } %>
+
+        <a href="/home" class="back-home">🏠</a>
+    </div>
+
+    <script src="/profile.js"></script>
+</body>
+</html>

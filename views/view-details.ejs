@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product View Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="view-details-css.css" />
+  <link rel="stylesheet" href="view-details-responsive.css" />
+</head>
+<body>
+            <div  class="details-container">
+                <div class="product-left">
+                <i id="back-icon" class="fa-solid fa-arrow-left" onclick="window.location.href='/shopping'"></i>
+                    <div class="conatiner-left">
+                        <h1 id="product-name"></h1>
+                        <p id="product-price" class="product-price"></p>
+                        <p class="desc">Move With Comfort, Wherever Your Workout Takes You. Engineered With Swiss Technology And Sustainable Materials.</p>
+
+                        <h3>Hit Next</h3>
+                        <button class="buy-btn" onclick="window.location.href='/shopping'" >Buy Now</button>
+                        <button id="next-button" class="buy-btn">Next</button>
+                    </div>
+                </div>
+
+                <div class="product-right" id="product-details-container">
+                  <img id="blurred-image" class="blur-img" />
+                    <div class="divcon">
+                            <img id="main-image" class="main-img" />
+                    </div>
+                </div>
+              </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="view-details-js.js"></script>
+</body>
+</html>

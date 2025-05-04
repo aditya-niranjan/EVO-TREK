@@ -1,0 +1,253 @@
+/* Responsive Styles for View Details Page */
+
+/* Tablet Devices (769px to 992px) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .details-container {
+    padding: 20px;
+    flex-direction: column-reverse;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .product-left {
+    width: 90%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .product-right {
+    width: 90%;
+    height: 50vh;
+  }
+
+  #back-icon {
+    font-size: 24px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .conatiner-left {
+    margin-left: 0;
+    padding-top: 40px;
+  }
+
+  .product-left h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .product-left h3 {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .product-price {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .desc {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .main-img {
+    width: 500px;
+    height: 500px;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(-1) rotate(13deg) scale(0.8);
+  }
+
+  .blur-img {
+    width: 180px;
+    height: 180px;
+    right: auto;
+    left: 60%;
+    top: 10%;
+  }
+
+  .buy-btn {
+    width: 130px;
+    height: 45px;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+}
+
+/* Medium Mobile Devices (481px to 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .details-container {
+    padding: 15px;
+    flex-direction: column-reverse;
+    height: auto;
+    min-height: 100vh;
+    gap: 10px;
+  }
+
+  .product-left {
+    width: 95%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .product-right {
+    width: 95%;
+    height: 45vh;
+  }
+
+  #back-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  .conatiner-left {
+    margin-left: 0;
+    padding-top: 30px;
+  }
+
+  .product-left h1 {
+    font-size: 24px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .product-left h3 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .product-price {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .desc {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .main-img {
+    width: 400px;
+    height: 400px;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(-1) rotate(10deg) scale(0.7);
+    bottom: 0;
+  }
+
+  .blur-img {
+    width: 150px;
+    height: 150px;
+    right: auto;
+    left: 60%;
+    top: 5%;
+  }
+
+  .buy-btn {
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+    margin: 0 8px;
+  }
+}
+
+/* Small Mobile Devices (320px to 480px) */
+@media only screen and (max-width: 480px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .details-container {
+    padding: 10px;
+    flex-direction: column-reverse;
+    height: auto;
+    min-height: 100vh;
+    gap: 5px;
+  }
+
+  .product-left {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .product-right {
+    width: 100%;
+    height: 40vh;
+  }
+
+  #back-icon {
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .conatiner-left {
+    margin-left: 0;
+    padding-top: 25px;
+  }
+
+  .product-left h1 {
+    font-size: 20px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .product-left h3 {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  .product-price {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .desc {
+    font-size: 12px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .main-img {
+    width: 300px;
+    height: 300px;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(-1) rotate(8deg) scale(0.6);
+    bottom: 0;
+  }
+
+  .blur-img {
+    width: 120px;
+    height: 120px;
+    right: auto;
+    left: 60%;
+    top: 5%;
+  }
+
+  .buy-btn {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}
+
+/* Animation for buttons */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

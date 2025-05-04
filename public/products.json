@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "name": "Nike Air Max (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image1-red.png",
+          "Blue": "image/image1-blue.png",
+          "Green": "image/image1-green.png",
+          "Yellow": "image/image1-yellow.png",
+          "Purple": "image/image1-purple.png"
+
+
+        }
+      },
+      {
+        "id": 2,
+        "name": "Sneakers Air (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image2-red.png",
+          "Blue": "image/image2-blue.png",
+          "Green": "image/image2-green.png",
+          "Yellow": "image/image2-yellow.png",
+          "Purple": "image/image2-purple.png"
+        }
+      },
+      {
+        "id": 3,
+        "name": "EVO Air Max (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image3-red.png",
+          "Blue": "image/image3-blue.png",
+          "Green": "image/image3-green.png",
+          "Yellow": "image/image3-yellow.png",
+          "Purple": "image/image3-purple.png"
+        }
+      },
+      {
+        "id": 4,
+        "name": "EVO Air copy (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image4-red.png",
+          "Blue": "image/image4-blue.png",
+          "Green": "image/image4-green.png",
+          "Yellow": "image/image4-yellow.png",
+          "Purple": "image/image4-purple.png"
+        }
+      } ,
+      {
+        "id": 5,
+        "name": "EVO Air copy (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image5-red.png",
+          "Blue": "image/image5-blue.png",
+          "Green": "image/image5-green.png",
+          "Yellow": "image/image5-yellow.png",
+          "Purple": "image/image5-purple.png"
+        }
+      },
+      {
+        "id": 6,
+        "name": "EVO Air copy (Evo trek)",
+        "price": 120,
+        "images": {
+          "Red": "image/image6-red.png",
+          "Blue": "image/image6-blue.png",
+          "Green": "image/image6-green.png",
+          "Yellow": "image/image6-yellow.png",
+          "Purple": "image/image6-purple.png"
+        }
+      } 
+]

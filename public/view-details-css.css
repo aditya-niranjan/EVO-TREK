@@ -1,0 +1,178 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ 
+}
+
+
+.details-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1vw;
+  padding: 2vw 4vw;
+  /* background: rgb(112, 49, 49); */
+  position:relative;
+}
+
+.product-left {
+  width: 40%;
+  height: 100%;
+  padding-right: 20px;
+  /* background: #000; */
+  padding: 0 3vw;
+  letter-spacing: 1px;
+  align-self: center;
+  line-height: 1.4;
+}
+
+.product-right {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #8d2c2c; */
+  position: relative;
+}
+
+
+#back-icon{
+  font-size: 2vw;
+top: 2vw;
+cursor: pointer;
+}
+
+
+.divcon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conatiner-left{
+  padding: 2vw 0;
+  margin-left: 1.5vw;
+}
+
+.product-left h1{
+  top: 0;
+  font-size: 3vw;
+  font-family: popins'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  text-align: start;
+}
+
+.product-left h3{
+  font-size: 2.6vw;
+  letter-spacing: 5px;
+}
+
+
+.product-price{
+  font-size: 2vw;
+  font-weight: 700;
+  align-items: center;
+  font-family: popins'Poppins', sans-serif;
+}
+
+.desc{
+  font-family: popins'Poppins', sans-serif;
+  font-size: 1.3vw;
+  font-weight: 200;
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+
+
+.main-img{
+  position: absolute;
+  width:700px;
+  height: 700px;
+  transform: scaleX(-1) rotate(13deg) scale(0.9);
+  right: 5.3vw;
+  z-index: 22;
+  bottom: 2vw;
+}
+
+.blur-img{
+  filter: blur(3px);
+  opacity: 0.7;
+  width: 225px;
+  height: 225px;
+  position:absolute;
+  top: 0;
+  right: 6%;
+  transform: scaleX(-1) rotate(8deg) scale(0.9);
+  /* transform:  translate(-50% - 50%); */
+  z-index: 50; 
+} 
+
+
+.details-container {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center right;
+  transition: background-image 0.4s ease-out;
+}
+
+.color-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #999;
+  cursor: pointer;
+}
+
+.color-button.active {
+  border: 3px solid orange;
+}
+
+.sizes button {
+  margin-right: 10px;
+  padding: 10px 15px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.buy-btn {
+  background: #552d56;
+  width: 150px;
+  height: 50px;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 60px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.buy-btn:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(to right, 
+      rgb(47, 5, 48) 0%,
+      rgba(150, 150, 176, 1) 50%,
+      rgb(126, 139, 141) 100%
+  );
+  background-size: 200% auto;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}

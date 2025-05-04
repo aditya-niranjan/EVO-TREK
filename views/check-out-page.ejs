@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="check-out-page.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="discount-section">
+            <input type="text" id="discountCode" placeholder="Enter discount code">
+            <button onclick="applyDiscount()">Apply</button>
+            <p id="discountMessage"></p>
+        </div>
+
+        <div class="total">
+            <h3>Total: ₹<span id="totalAmount">0</span></h3>
+        </div>
+
+        <form " id="checkoutForm">
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <textarea name="address" placeholder="Address" required></textarea>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number" pattern="\d{10}" required>
+            <label>
+                <input type="checkbox" required> I confirm the order
+            </label>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

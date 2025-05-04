@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/signup.css">
+</head>
+<body>
+    <video src="/elements/login-video.mp4" autoplay muted></video>
+    <img  id="logo" src="/elements/logo1.jpeg" alt="">
+    <div class="login-container">
+        <h1>Sign Up</h1>
+        <form action="/signup" method="POST">
+            <div class="form-group">
+                <i  id="user-icon" class="fa-regular fa-user"></i>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <i id="user-key"  class="fa-solid fa-lock"></i>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="signup-link"><h4>Already have an account?</h4><a href="/">Login</a></h4>
+        </div>
+    </div>
+</body>
+</html>

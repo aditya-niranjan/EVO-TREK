@@ -1,0 +1,353 @@
+/* ==== Global Styles ==== */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFFF;
+  scroll-behavior: smooth;
+}
+
+.main{
+  padding: 0 4vw;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  height: calc(100% - 10px);
+ position: relative;
+  top: 3vw;
+}
+
+/* ==== Header ==== */
+/* ==== Header (Updated to Sticky Nav) ==== */
+header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: transparent; /* Same as body or desired background */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4vw 1vw;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px); /* Optional: subtle blur effect */
+  border-bottom: 2px solid rgba(20, 14, 14, 0.365); /* Optional: separator line */
+}
+
+
+.icon-cart {
+  position: absolute;
+  font-size: 2vw;
+  margin-right: 5vw;
+  top: 2vw;
+  z-index: 101;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icon-cart:hover {
+  transform: scale(1.1);
+}
+
+.icon-cart span {
+  position: absolute;
+  background-color: rgba(252, 79, 79, 0.936);
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  top: -10px;
+  right: -10px;
+  padding: 5px;
+  font-size: 1vw;
+  border: 2px solid black;
+}
+
+
+#back-icon {
+  font-size: 2vw;
+  cursor: pointer;
+  position: absolute;
+  left: 5vw;
+  top: 2vw;
+  z-index: 101;
+  scale: 1.5;
+  /* Remove the animation and transition to avoid conflicts with GSAP */
+}
+
+/* No longer needed - animation is handled by GSAP */
+
+
+.title {
+  font-size: 3.6vw;
+  margin-top: 80px;
+  text-align: start;
+  width: 100%;
+}
+
+
+/* ==== Product List ==== */
+.listProduct{
+  display: grid;
+  grid-template-columns: repeat(2,545px);
+  gap: 3vw;
+  margin: 2vw auto;
+  max-width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  /* background: #be4b4b; */
+}
+
+
+
+
+.listProduct .item {
+  width: 500px;
+  height: 525px;
+  background-color: #E8D2CC;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  gap: 5px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-left: 2vw;
+  border: 1px solid rgba(0, 0, 0, 0.457);
+  border-radius: 10px;
+
+}
+/*
+.listProduct .item:hover {
+  transform: scale(1.03);
+} */
+
+.listProduct .item img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 10px rgba(26, 22, 22, 0.518));
+  transition: transform 0.3s ease;
+}
+
+.listProduct .item img:hover {
+  transform: scale(1.3) rotate(-10deg);
+}
+
+
+.listProduct .item h2 {
+  font-weight: 500;
+  font-size: 2vw;
+  text-align: center;
+  color: #060602;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listProduct .item .price {
+  letter-spacing: 3px;
+  font-size: 1.5vw;
+  font-weight: 600;
+  color: #130404;
+}
+
+/* ==== Buttons ==== */
+.listProduct .item button,
+.addCart,
+.view-detailes {
+  background: #390b3a;
+  background: linear-gradient(70deg, rgb(47, 5, 48) 0%,
+  rgba(150, 150, 176, 1) 78%, rgb(126, 139, 141) 100%);
+  padding: 0.5vw 1.5vw;
+  border: none;
+  border-radius: 60px;
+  color: #ffffff;
+  font-size: 1vw;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.addCart:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to right,
+      rgb(47, 5, 48) 0%,
+      rgba(150, 150, 176, 1) 50%,
+      rgb(126, 139, 141) 100%
+  );
+  background-size: 200% auto;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.view-detailes{
+  transform: translateY(-2px);
+  background: linear-gradient(to right,
+      rgb(47, 5, 48) 0%,
+      rgba(150, 150, 176, 1) 50%,
+      rgb(126, 139, 141) 100%
+  );
+  background-size: 200% auto;
+  animation: gradientShift 2s ease infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+
+
+
+
+
+
+.sizeSelect {
+  margin: 8px 0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid #361a1a;
+  cursor: pointer;
+}
+
+.sizeSelect:hover {
+  background-color: #544242;
+  color: white;
+}
+
+/* ==== Final Price and Clear Cart ==== */
+.finalPrice {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  color: #f5e6dc;
+}
+
+.clearCart {
+  margin-top: 10px;
+  background-color: #ff3333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.clearCart:hover {
+  background-color: #cc0000;
+}
+
+/* ==== Cart Panel ==== */
+.cartTab {
+  width: 420px;
+  background-color: #353432;
+  color: #eee;
+  position: fixed;
+  top: 0;
+  right: -420px;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  transition: 0.5s;
+}
+
+.showCart .cartTab {
+  right: 0;
+  z-index: 9999;
+}
+
+body.showCart {
+  overflow: hidden;
+}
+
+.cartTab h1 {
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.cartTab .btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab button {
+  background-color: #E8BC0E;
+  border: none;
+  font-family: Poppins;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cartTab .close {
+  background-color: #eee;
+}
+
+.listCart {
+  overflow: auto;
+}
+
+.listCart::-webkit-scrollbar {
+  width: 0;
+}
+
+.listCart .item {
+  display: grid;
+  grid-template-columns: 70px 150px 50px 1fr;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.listCart .item:nth-child(even) {
+  background-color: #eee1;
+}
+
+.listCart .item img {
+  width: 100%;
+}
+
+.listCart .quantity span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  color: #555;
+  cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+  background-color: transparent;
+  color: #eee;
+  cursor: auto;
+}
+
+/* ==== Responsive ==== */
+@media only screen and (max-width: 992px) {
+  .listProduct {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .listProduct {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .title {
+    margin-left: 0;
+  }
+}

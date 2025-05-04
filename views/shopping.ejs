@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EvoTrek Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+  <link rel="stylesheet" href="shopping.css"/>
+  <link rel="stylesheet" href="shopping-responsive.css"/>
+</head>
+<body>
+
+<div class="main">
+  <div class="container">
+    <!-- Header -->
+    <header class="sticky-header">
+      <!-- Back icon (visible on desktop) -->
+      <i class="fa-solid fa-backward" id="back-icon"></i>
+
+      <!-- Hamburger menu (visible on mobile) -->
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- Mobile navigation menu -->
+      <div class="nav-menu">
+        <div class="mobile-menu">
+          <a href="/">Home</a>
+          <a href="/profile">Profile</a>
+          <a href="/check-out-page">Checkout</a>
+        </div>
+      </div>
+
+      <!-- Cart icon (visible on all devices) -->
+      <div class="icon-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>0</span>
+      </div>
+    </header>
+
+    <!-- Product Listing -->
+    <h1 id="title" class="title">SHOP</h1>
+    <div class="listProduct">
+      <!-- Products will be added dynamically via JS -->
+    </div>
+  </div>
+
+  <!-- Cart Panel -->
+  <div class="cartTab">
+    <h1>Shopping Cart</h1>
+    <div class="listCart"></div>
+    <div class="btn">
+      <button class="close">CLOSE</button>
+      <button class="checkOut" onclick="window.location.href='/check-out-page'">Check Out</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="shopping.js"></script>
+</body>
+</html>

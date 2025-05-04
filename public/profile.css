@@ -1,0 +1,239 @@
+/* profile.css */
+
+/* General page styles */
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8f9fb, #e3e7ed);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Main container */
+.profile-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.profile-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Alert styles */
+.alert {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.7);
+  color: white;
+  border: 1px solid rgba(76, 175, 80, 0.9);
+}
+
+.alert-error {
+  background-color: rgba(244, 67, 54, 0.7);
+  color: white;
+  border: 1px solid rgba(244, 67, 54, 0.9);
+}
+
+/* Password update section */
+.password-update {
+  margin-bottom: 2.5rem;
+}
+
+.password-update h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.password-update form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.password-update input {
+  width: 35%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: border 0.3s;
+}
+
+.password-update input:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+.password-update button {
+  width: 25%;
+  padding: 0.8rem;
+  background: #ff7f50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.password-update button:hover {
+  background: #ff5722;
+}
+
+/* Order History Header */
+.order-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.order-history-header h2 {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+/* Clear Order History Button */
+.clear-history-btn {
+  padding: 0.6rem 1rem;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.clear-history-btn:hover {
+  background: #d32f2f;
+}
+
+/* Empty orders message */
+.no-orders {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 2rem;
+}
+
+/* Order Card */
+.order-card {
+  background: #fafafa;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Order Info */
+.order-card h3,
+.order-card h4 {
+  margin: 0.5rem 0;
+  color: #444;
+}
+
+/* Item List inside Order */
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Single Item Card */
+.item-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s;
+}
+
+.item-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Item Image */
+.item-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Item Details */
+.item-details h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.item-details p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Back to home link */
+.back-home {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  background: #4caf50;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-home:hover {
+  background: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .items-list {
+      flex-direction: column;
+  }
+
+  .item-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .item-card img {
+      width: 80px;
+      height: 80px;
+  }
+}
