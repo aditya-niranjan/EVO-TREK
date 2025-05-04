@@ -379,16 +379,19 @@ function shoesAnimation2(){
 
   // Different animation parameters based on screen size
   const getShoesPosition2 = () => {
+
     if (window.innerWidth <= 375) {
       // Small mobile
       return {
         position: "absolute",
-        top: "1020%",
-        right: "07%",
+        top: "1041%",
+        right: "08%",
         rotate: "-08deg",
-        scale: 0.5,
+        scale: 0.6,
         duration: 1.8
       };
+    } else if (window.innerWidth <= 480) {
+      // Small mobile
       return {
         position: "absolute",
         top: "1041%",
