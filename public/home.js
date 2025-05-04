@@ -181,10 +181,10 @@ function shoesAnimation(){
     if (window.innerWidth <= 480) {
       // Small mobile
       return {
-        top: "80%",
-        right: "0%",
-        rotate: "0deg",
-        scale: 0.7,
+        top: "265%",
+        right: "30%",
+        rotate: "-30deg",
+        scale: 1.3,
         duration: 1.8
       };
     } else if (window.innerWidth <= 768) {
@@ -224,7 +224,7 @@ function shoesAnimation(){
         trigger: ".page2",
         scroller: ".main",
         start: "top 90%",
-        end: "30% 50%",
+        end: "50% 50%",
         // markers: true,
         scrub: 0.8,
       };
@@ -382,10 +382,11 @@ function shoesAnimation2(){
     if (window.innerWidth <= 480) {
       // Small mobile
       return {
-        top: "160%",
-        right: "0%",
-        rotate: "0deg",
-        scale: 0.12,
+        position: "absolute",
+        top: "1047%",
+        right: "08%",
+        rotate: "-08deg",
+        scale: 0.6,
         duration: 1.8
       };
     } else if (window.innerWidth <= 768) {
@@ -394,7 +395,7 @@ function shoesAnimation2(){
         top: "180%",
         right: "20%",
         rotate: "-5deg",
-        scale: 0.15,
+        scale:  0.15,
         duration: 2
       };
     } else if (window.innerWidth <= 992) {
@@ -425,7 +426,7 @@ function shoesAnimation2(){
         trigger: ".page2",
         scroller: ".main",
         start: "80% 90%",
-        end: "100% 10%",
+        end: "205% 10%",
         // markers: true,
         scrub: 0.8,
       };
