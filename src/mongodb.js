@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const mongodbURL = process.env.DB_URL || 'mongodb://localhost:27017/evotrek';
+
+
+
 // Determine environment
 const isProduction = process.env.NODE_ENV === 'production';
 
 // Use environment variable for MongoDB connection string
 // In production, use DB_URL from environment variables
 // In development, fall back to local MongoDB if not provided
-const mongodbURL = process.env.DB_URL || 'mongodb://localhost:27017/evotrek';
 
 // Connection options
 const options = {
