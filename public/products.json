@@ -4,11 +4,11 @@
         "name": "Nike Air Max (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image1-red.png",
-          "Blue": "image/image1-blue.png",
-          "Green": "image/image1-green.png",
-          "Yellow": "image/image1-yellow.png",
-          "Purple": "image/image1-purple.png"
+          "Red": "image/Image1-red.png",
+          "Blue": "image/Image1-blue.png",
+          "Green": "image/Image1-green.png",
+          "Yellow": "image/Image1-yellow.png",
+          "Purple": "image/Image1-purple.png"
 
 
         }
@@ -18,11 +18,11 @@
         "name": "Sneakers Air (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image2-red.png",
-          "Blue": "image/image2-blue.png",
-          "Green": "image/image2-green.png",
-          "Yellow": "image/image2-yellow.png",
-          "Purple": "image/image2-purple.png"
+          "Red": "image/Image2-red.png",
+          "Blue": "image/Image2-blue.png",
+          "Green": "image/Image2-green.png",
+          "Yellow": "image/Image2-yellow.png",
+          "Purple": "image/Image2-purple.png"
         }
       },
       {
@@ -30,11 +30,11 @@
         "name": "EVO Air Max (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image3-red.png",
-          "Blue": "image/image3-blue.png",
-          "Green": "image/image3-green.png",
-          "Yellow": "image/image3-yellow.png",
-          "Purple": "image/image3-purple.png"
+          "Red": "image/Image3-red.png",
+          "Blue": "image/Image3-blue.png",
+          "Green": "image/Image3-green.png",
+          "Yellow": "image/Image3-yellow.png",
+          "Purple": "image/Image3-purple.png"
         }
       },
       {
@@ -42,11 +42,11 @@
         "name": "EVO Air copy (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image4-red.png",
-          "Blue": "image/image4-blue.png",
-          "Green": "image/image4-green.png",
-          "Yellow": "image/image4-yellow.png",
-          "Purple": "image/image4-purple.png"
+          "Red": "image/Image4-red.png",
+          "Blue": "image/Image4-blue.png",
+          "Green": "image/Image4-green.png",
+          "Yellow": "image/Image4-yellow.png",
+          "Purple": "image/Image4-purple.png"
         }
       } ,
       {
@@ -54,11 +54,11 @@
         "name": "EVO Air copy (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image5-red.png",
-          "Blue": "image/image5-blue.png",
-          "Green": "image/image5-green.png",
-          "Yellow": "image/image5-yellow.png",
-          "Purple": "image/image5-purple.png"
+          "Red": "image/Image5-red.png",
+          "Blue": "image/Image5-blue.png",
+          "Green": "image/Image5-green.png",
+          "Yellow": "image/Image5-yellow.png",
+          "Purple": "image/Image5-purple.png"
         }
       },
       {
@@ -66,11 +66,11 @@
         "name": "EVO Air copy (Evo trek)",
         "price": 120,
         "images": {
-          "Red": "image/image6-red.png",
-          "Blue": "image/image6-blue.png",
-          "Green": "image/image6-green.png",
-          "Yellow": "image/image6-yellow.png",
-          "Purple": "image/image6-purple.png"
+          "Red": "image/Image6-red.png",
+          "Blue": "image/Image6-blue.png",
+          "Green": "image/Image6-green.png",
+          "Yellow": "image/Image6-yellow.png",
+          "Purple": "image/Image6-purple.png"
         }
-      } 
+      }
 ]
