@@ -15,10 +15,14 @@
     "mongoose": "^8.13.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "cross-env": "^7.0.3"
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "prod": "cross-env NODE_ENV=production node src/index.js",
+    "local": "node -r dotenv/config src/index.js",
+    "vercel-build": "echo 'Build step completed'"
   }
 }

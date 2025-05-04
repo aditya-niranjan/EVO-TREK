@@ -1,19 +1,31 @@
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const cors = require('cors');
 const { collection } = require('./mongodb'); // User collection
 const { Order } = require('./order');        // Order model
 const { Cart } = require('./cart');          // Cart model
 const { ObjectId } = require('mongodb');     // For _id conversion
+
+// Load environment variables from .env file
 require('dotenv').config();
 
+// Initialize Express app
 const app = express();
+
+// Enable CORS for all routes (helpful for local development)
+app.use(cors());
+
+// Middleware for parsing JSON and form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.set('view engine', 'ejs');
-app.use(express.static("public"));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Set up EJS as the view engine
+app.set('view engine', 'ejs');
+
+// Serve static files from the public directory
+app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
 
@@ -376,8 +388,15 @@ app.get('/api/products/:productId', async (req, res) => {
 
 // ===============================================
 
+// Determine environment
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Start Server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is running in ${isProduction ? 'production' : 'development'} mode on port ${port}`);
+    console.log(`Local URL: http://localhost:${port}`);
+    if (isProduction) {
+        console.log('Production URL will be provided by Vercel');
+    }
 });
