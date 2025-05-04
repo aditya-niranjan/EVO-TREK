@@ -23,6 +23,8 @@
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
     "prod": "cross-env NODE_ENV=production node src/index.js",
     "local": "node -r dotenv/config src/index.js",
-    "vercel-build": "echo 'Build step completed'"
+    "build": "echo 'Build completed'",
+    "vercel-build": "echo 'Vercel build completed'",
+    "render-build": "echo 'Render build completed'"
   }
 }

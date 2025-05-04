@@ -18,22 +18,26 @@ A responsive e-commerce website for shoes with user authentication, shopping car
 - **Database**: MongoDB
 - **Authentication**: bcrypt for password hashing
 
-## Deployment on Vercel
+## Deployment Options
 
-### Prerequisites
+This project can be deployed on either Vercel or Render.
+
+### Deployment on Vercel
+
+#### Prerequisites
 
 1. A [Vercel](https://vercel.com/) account
 2. A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
 3. Git installed on your machine
 
-### Setup Environment Variables
+#### Setup Environment Variables
 
 1. In your Vercel dashboard, go to your project settings
 2. Add the following environment variables:
-   - `MONGODB_URI`: Your MongoDB connection string
+   - `MONGODB_URL`: Your MongoDB connection string
    - `SESSION_SECRET`: A secret string for session management
 
-### Deployment Steps
+#### Deployment Steps
 
 1. Fork or clone this repository
 2. Push your code to GitHub
@@ -41,18 +45,35 @@ A responsive e-commerce website for shoes with user authentication, shopping car
 4. Configure the environment variables in Vercel
 5. Deploy the application
 
-### Manual Deployment
+For detailed instructions, see [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md).
 
-```bash
-# Install Vercel CLI
-npm install -g vercel
+### Deployment on Render
 
-# Login to Vercel
-vercel login
+#### Prerequisites
 
-# Deploy to Vercel
-vercel
-```
+1. A [Render](https://render.com/) account
+2. A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
+3. Git installed on your machine
+
+#### Setup Environment Variables
+
+1. In your Render dashboard, go to your web service settings
+2. Add the following environment variables:
+   - `MONGODB_URL`: Your MongoDB connection string
+   - `SESSION_SECRET`: A secret string for session management
+   - `NODE_ENV`: Set to `production`
+
+#### Deployment Steps
+
+1. Fork or clone this repository
+2. Push your code to GitHub
+3. Create a new Web Service in Render
+4. Connect your GitHub repository
+5. Configure the build and start commands
+6. Add the environment variables
+7. Deploy the application
+
+For detailed instructions, see [RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md).
 
 ## Local Development
 

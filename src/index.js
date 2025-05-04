@@ -391,12 +391,24 @@ app.get('/api/products/:productId', async (req, res) => {
 // Determine environment
 const isProduction = process.env.NODE_ENV === 'production';
 
+// Determine deployment platform
+const isRender = process.env.RENDER === 'true' || !!process.env.RENDER_EXTERNAL_URL;
+const isVercel = !!process.env.VERCEL_URL;
+
 // Start Server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server is running in ${isProduction ? 'production' : 'development'} mode on port ${port}`);
-    console.log(`Local URL: http://localhost:${port}`);
+
     if (isProduction) {
-        console.log('Production URL will be provided by Vercel');
+        if (isRender) {
+            console.log(`Deployed on Render: ${process.env.RENDER_EXTERNAL_URL || 'URL not available yet'}`);
+        } else if (isVercel) {
+            console.log(`Deployed on Vercel: ${process.env.VERCEL_URL || 'URL not available yet'}`);
+        } else {
+            console.log('Running in production mode');
+        }
+    } else {
+        console.log(`Local URL: http://localhost:${port}`);
     }
 });
