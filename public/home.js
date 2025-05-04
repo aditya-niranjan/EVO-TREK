@@ -8,12 +8,15 @@ function isMobile() {
   return window.innerWidth <= 768;
 }
 
+// Create a global variable for LocomotiveScroll
+window.locoScroll = null;
+
 function smooothScrolling(){
   gsap.registerPlugin(ScrollTrigger);
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
-const locoScroll = new LocomotiveScroll({
+window.locoScroll = new LocomotiveScroll({
 el: document.querySelector(".main"),
 smooth: true,
   // offset: 100,
@@ -30,12 +33,12 @@ smooth: true,
 });
 
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-locoScroll.on("scroll", ScrollTrigger.update);
+window.locoScroll.on("scroll", ScrollTrigger.update);
 
 // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy(".main", {
 scrollTop(value) {
-  return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+  return arguments.length ? window.locoScroll.scrollTo(value, 0, 0) : window.locoScroll.scroll.instance.scroll.y;
 }, // we don't have to define a scrollLeft because we're only scrolling vertically.
 getBoundingClientRect() {
   return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
@@ -45,7 +48,7 @@ pinType: document.querySelector(".main").style.transform ? "transform" : "absolu
 });
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+ScrollTrigger.addEventListener("refresh", () => window.locoScroll.update());
 
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
@@ -54,7 +57,7 @@ ScrollTrigger.refresh();
 window.addEventListener('resize', () => {
   setTimeout(() => {
     ScrollTrigger.refresh();
-    locoScroll.update();
+    window.locoScroll.update();
   }, 200);
 });
 
@@ -97,6 +100,11 @@ tabs.forEach((tab, index) => {
       hamburger.classList.remove("active");
       navTabs.classList.remove("active");
       document.body.classList.remove("menu-open");
+    }
+
+    // If the "Help" tab is clicked (index 2), scroll to page5
+    if (index === 2) {
+      scrollToPage5();
     }
   });
 });
@@ -528,6 +536,70 @@ function shoesAnimation2(){
   });
 }
 shoesAnimation2();
+
+// Function to scroll to page5 (footer)
+function scrollToPage5() {
+  const page5 = document.querySelector('.page5');
+
+  if (page5) {
+    // Get the LocomotiveScroll instance
+    const locoScroll = window.locoScroll;
+
+    if (locoScroll) {
+      // Smooth scroll to page5 with animation
+      locoScroll.scrollTo(page5, {
+        duration: 1500,
+        easing: [0.25, 0.1, 0.25, 1], // cubic-bezier easing
+        disableLerp: false
+      });
+    } else {
+      // Fallback if LocomotiveScroll is not available
+      page5.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
+// Add click event to the "Contact Us" text in the footer and other footer elements
+document.addEventListener('DOMContentLoaded', () => {
+  const contactUs = document.getElementById('contact-us');
+  const subscribeUs = document.getElementById('subscribe-us');
+  const footerLinks = document.querySelectorAll('.footer-links a');
+
+  // Add click event to Contact Us
+  if (contactUs) {
+    contactUs.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToPage5();
+    });
+  }
+
+  // Add click event to Subscribe Us
+  if (subscribeUs) {
+    subscribeUs.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToPage5();
+    });
+  }
+
+  // Add click events to all footer links
+  footerLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      // Animate the link
+      gsap.to(link, {
+        scale: 1.1,
+        color: '#ff6b00',
+        duration: 0.3,
+        yoyo: true,
+        repeat: 1
+      });
+
+      // Scroll to page5
+      scrollToPage5();
+    });
+  });
+});
 
 
 // const currentUser = {
