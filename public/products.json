@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "name": "Nike Air Max (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek AeroX",
+        "price": 3699,
         "images": {
           "Red": "image/Image1-red.png",
           "Blue": "image/Image1-blue.png",
@@ -15,8 +15,8 @@
       },
       {
         "id": 2,
-        "name": "Sneakers Air (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek Horizon II",
+        "price": 2999,
         "images": {
           "Red": "image/Image2-red.png",
           "Blue": "image/Image2-blue.png",
@@ -27,8 +27,8 @@
       },
       {
         "id": 3,
-        "name": "EVO Air Max (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek Nexus I",
+        "price": 3999,
         "images": {
           "Red": "image/Image3-red.png",
           "Blue": "image/Image3-blue.png",
@@ -39,8 +39,8 @@
       },
       {
         "id": 4,
-        "name": "EVO Air copy (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek Aura",
+        "price": 4999,
         "images": {
           "Red": "image/Image4-red.png",
           "Blue": "image/Image4-blue.png",
@@ -51,8 +51,8 @@
       } ,
       {
         "id": 5,
-        "name": "EVO Air copy (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek PulseWave",
+        "price": 3499,
         "images": {
           "Red": "image/Image5-red.png",
           "Blue": "image/Image5-blue.png",
@@ -63,8 +63,8 @@
       },
       {
         "id": 6,
-        "name": "EVO Air copy (Evo trek)",
-        "price": 120,
+        "name": "EvoTrek HyperTrail",
+        "price": 2499,
         "images": {
           "Red": "image/Image6-red.png",
           "Blue": "image/Image6-blue.png",
