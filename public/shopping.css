@@ -39,11 +39,11 @@ header {
 }
 
 
-.icon-cart {
-  position: absolute;
-  font-size: 2vw;
+#cart-icon{
+  position:relative;
+  font-size: 2.5vw;
   margin-right: 5.5vw;
-  top: 2vw;
+  top: 0;
   z-index: 101;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -53,21 +53,22 @@ header {
   transform: scale(1.1);
 }
 
-.icon-cart span {
+#cart-icon1 span {
   position: absolute;
   background-color: rgba(252, 79, 79, 0.936);
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   color: #fff;
-  top: -10px;
-  right: -10px;
+  top: 10px;
+  right: 5vw;
   padding: 5px;
-  font-size: 1vw;
+  font-size:1vw;
   border: 2px solid black;
+  z-index: 101;
 }
 
 
