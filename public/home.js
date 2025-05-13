@@ -189,7 +189,7 @@ function shoesAnimation(){
         scale: 1,
         duration: 1.8
       };
-    } else if(window.innerWidth <= 480) {
+    } else if(window.innerWidth <= 430) {
       // Small mobile
       return {
         top: "235%",
@@ -400,7 +400,7 @@ function shoesAnimation2(){
         scale: 0.4,
         duration: 2
       };
-    } else if (window.innerWidth <= 480) {
+    } else if (window.innerWidth <= 430) {
       // Small mobile
       return {
         top: "786%",
