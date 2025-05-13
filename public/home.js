@@ -192,10 +192,10 @@ function shoesAnimation(){
     } else if(window.innerWidth <= 480) {
       // Small mobile
       return {
-        top: "265%",
-        right: "30%",
-        rotate: "-30deg",
-        scale: 1.3,
+        top: "235%",
+        right: "33%",
+        rotate: "-42deg",
+        scale: 1,
         duration: 1.8
       };
     } else if (window.innerWidth <= 768) {
@@ -403,10 +403,10 @@ function shoesAnimation2(){
     } else if (window.innerWidth <= 480) {
       // Small mobile
       return {
-        top: "1041%",
-        right: "08%",
+        top: "786%",
+        right: "06%",
         rotate: "-08deg",
-        scale: 0.6,
+        scale: 0.3,
         duration: 1.8
       };
     } else if (window.innerWidth <= 768) {
