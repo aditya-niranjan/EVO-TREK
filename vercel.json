@@ -14,7 +14,7 @@
   ],
   "env": {
     "NODE_ENV": "production",
-    "DB_URL": "@db_url",
-    "SESSION_SECRET": "@session_secret"
+    "DB_URL": "mongodb+srv://EVOTREK:evotrek2502@login-web.ri58evs.mongodb.net/",
+    "SESSION_SECRET": "evotrek2502"
   }
 }
