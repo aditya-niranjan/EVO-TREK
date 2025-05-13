@@ -396,17 +396,8 @@ const isRender = process.env.RENDER === 'true' || !!process.env.RENDER_EXTERNAL_
 const isVercel = !!process.env.VERCEL_URL;
 
 // Start Server
-// In Vercel, we don't need to specify a port as it's handled automatically
-const port = process.env.PORT || 3000;
-
-// Log environment information
-console.log('Environment:', process.env.NODE_ENV);
-console.log('Is Vercel:', isVercel ? 'Yes' : 'No');
-console.log('Is Render:', isRender ? 'Yes' : 'No');
-console.log('MongoDB URL:', process.env.DB_URL ? 'Set (hidden for security)' : 'Not set');
-
-// Start the server
-const server = app.listen(port, () => {
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
     console.log(`Server is running in ${isProduction ? 'production' : 'development'} mode on port ${port}`);
 
     if (isProduction) {
@@ -419,14 +410,5 @@ const server = app.listen(port, () => {
         }
     } else {
         console.log(`Local URL: http://localhost:${port}`);
-    }
-});
-
-// Handle server errors
-server.on('error', (error) => {
-    if (error.code === 'EADDRINUSE') {
-        console.error(`Port ${port} is already in use. This is normal on Vercel.`);
-    } else {
-        console.error('Server error:', error);
     }
 });

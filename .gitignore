@@ -2,8 +2,6 @@
 node_modules
 /.pnp
 .pnp.js
-VRCEL_SESSION_SECRET_GUIDE.md
-VERCEL_DEPLOYMENT_GUIDE.md
 
 # testing
 /coverage
