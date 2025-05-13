@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "src/index.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "DB_URL": "@db_url",
-    "SESSION_SECRET": "@session_secret"
-  }
+  ]
 }
