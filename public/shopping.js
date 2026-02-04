@@ -89,7 +89,7 @@ const addDataToHTML = () => {
             newProduct.dataset.id = product.id;
             newProduct.classList.add('item');
             newProduct.innerHTML = `
-                <img src="${product.images['Red']}" class="productImage" alt="">
+                <img src="${product.images['Red']}" class="productImage" alt="" loading="lazy" decoding="async">
                 <h2>${product.name}</h2>
                 <div class="price">₹${product.price}</div>
                 <select class="sizeSelect">
