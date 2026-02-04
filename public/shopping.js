@@ -21,7 +21,7 @@ if (!currentUser) {
 
 // Load cart from localStorage for static demo
 cart = JSON.parse(localStorage.getItem('demoCart')) || [];
-addCartToHTML();
+// Note: addCartToHTML will be called after products are loaded in initApp()
 
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');

@@ -1,22 +1,20 @@
-  const mongoose = require('mongoose');
-require('dotenv').config();
+// Static Demo Mode - Mock Order model
+// Orders are handled via localStorage on the frontend
 
-// We'll use the same connection as in mongodb.js
+class MockOrder {
+  constructor(data) {
+    Object.assign(this, data);
+  }
+  async save() {
+    return this;
+  }
+  static async find() {
+    return [];
+  }
+  static async deleteMany() {
+    return { deletedCount: 0 };
+  }
+}
 
-
-
-  const orderSchema = new mongoose.Schema({
-    userId: mongoose.Schema.Types.ObjectId,
-    username: String,        // Logged-in account name
-    fullName: String,        //  Form input
-    address: String,
-    email: String,
-    phone: String,
-    items: Array,
-    total: Number,
-    date: Date
-});
-
-const Order = mongoose.model('Order', orderSchema);
-module.exports = { Order };
+module.exports = { Order: MockOrder };
 

@@ -1,20 +1,10 @@
-const mongoose = require('mongoose');
+// Static Demo Mode - Mock Cart model
+// Cart is handled via localStorage on the frontend
 
-const cartItemSchema = new mongoose.Schema({
-  product_id: String,
-  size: String,
-  color: String,
-  quantity: Number
-});
+const Cart = {
+  findOne: async () => null,
+  findOneAndUpdate: async () => ({ items: [] }),
+  findOneAndDelete: async () => null
+};
 
-const cartSchema = new mongoose.Schema({
-  userId: mongoose.Schema.Types.ObjectId,
-  items: [cartItemSchema],
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  }
-});
-
-const Cart = mongoose.model('Cart', cartSchema);
 module.exports = { Cart };
