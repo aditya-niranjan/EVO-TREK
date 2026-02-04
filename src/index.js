@@ -23,6 +23,9 @@ app.use(express.urlencoded({ extended: false }));
 // Set up EJS as the view engine
 app.set('view engine', 'ejs');
 
+// Set views directory explicitly for Vercel compatibility
+app.set('views', path.join(__dirname, '..', 'views'));
+
 // Serve static files from the public directory
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, '..', 'public')));
