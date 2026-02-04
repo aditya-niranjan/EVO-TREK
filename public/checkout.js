@@ -1,26 +1,19 @@
+// Static demo mode - no authentication required
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if (!currentUser) {
-    alert("You must be logged in to proceed with checkout.");
-    window.location.href = "/";
+    currentUser = { _id: 'demo-user', name: 'Guest' };
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
 
 let cart = [];
 
-// Fetch cart from backend API
-fetch(`/api/cart/${currentUser._id}`)
+// Load cart from localStorage for static demo
+cart = JSON.parse(localStorage.getItem('demoCart')) || [];
+fetch('/products.json')
     .then(res => res.json())
     .then(data => {
-        cart = data || [];
-        fetch('/products.json')
-            .then(res => res.json())
-            .then(data => {
-                products = data;
-                renderCart();
-            });
-    })
-    .catch(err => {
-        console.error("Error fetching cart:", err);
-        cart = [];
+        products = data;
+        renderCart();
     });
 let products = [];
 
@@ -109,24 +102,14 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
         date: new Date()
     };
 
-    fetch('/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(order)
-    }).then(res => {
-        if (res.ok) {
-            // Clear cart from backend
-            fetch(`/api/cart/${currentUser._id}`, {
-                method: 'DELETE'
-            }).then(() => {
-                alert('Order placed successfully!');
-                window.location.href = `/home?userId=${currentUser._id}`;
-            }).catch(err => {
-                console.error("Error clearing cart:", err);
-                alert('Order placed successfully!');
-                window.location.href = `/home?userId=${currentUser._id}`;
-            });
-        }
-    });
-
+    // Static demo mode - save order to localStorage and clear cart
+    let demoOrders = JSON.parse(localStorage.getItem('demoOrders')) || [];
+    demoOrders.push(order);
+    localStorage.setItem('demoOrders', JSON.stringify(demoOrders));
+    
+    // Clear cart from localStorage
+    localStorage.removeItem('demoCart');
+    
+    alert('Order placed successfully! (Demo mode - order saved locally)');
+    window.location.href = '/';
 });

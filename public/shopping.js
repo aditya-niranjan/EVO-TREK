@@ -11,23 +11,17 @@ let mobileMenu = document.querySelector('.mobile-menu');
 let products = [];
 let cart = [];
 
+// Static demo mode - no authentication required
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if (!currentUser) {
-    alert("You must be logged in to EVO TREK to view Products!");
-    window.location.href = "/signup";
-} else {
-    // Fetch cart from backend API
-    fetch(`/api/cart/${currentUser._id}`)
-        .then(res => res.json())
-        .then(data => {
-            cart = data || [];
-            addCartToHTML();
-        })
-        .catch(err => {
-            console.error("Error fetching cart:", err);
-            cart = [];
-        });
+    // Create a demo user for static demo mode
+    currentUser = { _id: 'demo-user', name: 'Guest' };
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 }
+
+// Load cart from localStorage for static demo
+cart = JSON.parse(localStorage.getItem('demoCart')) || [];
+addCartToHTML();
 
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
@@ -58,7 +52,7 @@ if (mobileMenu) {
 
     // Add a back link to the mobile menu
     const backLink = document.createElement('a');
-    backLink.href = '/home';
+    backLink.href = '/';
     backLink.textContent = 'Back to Home';
     backLink.classList.add('back-link');
     backLink.addEventListener('click', (e) => {
@@ -79,7 +73,7 @@ if (mobileMenu) {
             duration: 0.8,
             ease: "power2.in",
             onComplete: () => {
-                window.location.href = '/home';
+                window.location.href = '/';
             }
         });
     });
@@ -170,19 +164,8 @@ const addToCart = (product_id, size, color) => {
 };
 
 const addCartToMemory = () => {
-    if (currentUser) {
-        // Save cart to backend API
-        fetch(`/api/cart/${currentUser._id}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ items: cart })
-        })
-        .catch(err => {
-            console.error("Error saving cart:", err);
-        });
-    }
+    // Static demo mode - save cart to localStorage
+    localStorage.setItem('demoCart', JSON.stringify(cart));
 };
 
 const addCartToHTML = () => {
@@ -357,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 onComplete: () => {
                     // After animation completes, redirect
                     setTimeout(() => {
-                        window.location.href = '/home';
+                        window.location.href = '/';
                     }, 200);
                 }
             });

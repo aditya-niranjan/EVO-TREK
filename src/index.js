@@ -30,9 +30,9 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
 
-// Login Page
+// Home Page (Landing page for static demo)
 app.get('/', (req, res) => {
-    res.render('login', { message: null, alertType: null });
+    res.render('home', { username: 'Guest', userId: 'demo-user' });
 });
 
 // Signup Page
@@ -150,31 +150,16 @@ app.get('/logout', (req, res) => {
 // New Added Code for Profile and Password Update + Order History
 // ===============================================
 
-// Profile Page
+// Profile Page - Static demo mode
 app.get('/profile', async (req, res) => {
-    const userId = req.query.userId;
-    if (!userId) {
-        return res.redirect('/');
-    }
-
-    try {
-        const user = await collection.findOne({ _id: new ObjectId(userId) });
-        const orders = await Order.find({ userId: new ObjectId(userId) }).sort({ date: -1 });
-
-        if (!user) {
-            return res.redirect('/');
-        }
-
-        res.render('profile', {
-            user,
-            orders,
-            message: null,
-            alertType: null
-        });
-    } catch (err) {
-        console.error("Profile Load Error:", err);
-        res.redirect('/');
-    }
+    // Static demo mode - render profile with demo data
+    res.render('profile', {
+        user: { _id: 'demo-user', name: 'Guest' },
+        orders: [],
+        message: 'This is a demo profile. Order history is stored in your browser.',
+        alertType: 'info',
+        demoMode: true
+    });
 });
 
 // Update Password
