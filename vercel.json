@@ -9,14 +9,7 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.+\\.(css|js|json|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/api/index"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index" }
   ]
 }

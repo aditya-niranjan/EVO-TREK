@@ -26,8 +26,7 @@ app.set('view engine', 'ejs');
 // Set views directory explicitly for Vercel compatibility
 app.set('views', path.join(__dirname, '..', 'views'));
 
-// Serve static files from the public directory
-app.use(express.static("public"));
+// Serve static files from the public directory (use absolute path for Vercel compatibility)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
@@ -131,16 +130,16 @@ app.get('/home', (req, res) => {
                 if (user) {
                     res.render('home', { username: user.name, userId: user._id.toString() });
                 } else {
-                    res.render('home');
+                    res.render('home', { username: 'Guest', userId: 'demo-user' });
                 }
             })
             .catch(err => {
                 console.error("Home Page Error:", err);
-                res.render('home');
+                res.render('home', { username: 'Guest', userId: 'demo-user' });
             });
     } else {
-        // If no userId, just render the home page
-        res.render('home');
+        // If no userId, just render the home page with defaults
+        res.render('home', { username: 'Guest', userId: 'demo-user' });
     }
 });
 
@@ -375,6 +374,19 @@ app.get('/api/products/:productId', async (req, res) => {
 });
 
 // ===============================================
+
+// ===============================================
+// Error Handling Middleware (must be last)
+// ===============================================
+app.use((err, req, res, next) => {
+    console.error('Express Error:', err.stack || err.message || err);
+    res.status(500).send('Something went wrong. Please try again.');
+});
+
+// Handle 404 - Route not found
+app.use((req, res) => {
+    res.status(404).send('Page not found');
+});
 
 // Determine environment
 const isProduction = process.env.NODE_ENV === 'production';
