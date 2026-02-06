@@ -9,18 +9,22 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Resolve paths once (absolute, works in both Vercel Lambda & local)
-const viewsDir = path.resolve(__dirname, '..', 'views');
-const publicDir = path.resolve(__dirname, '..', 'public');
+// Resolve paths - use process.cwd() for Vercel compatibility
+const isVercel = !!process.env.VERCEL;
+const baseDir = isVercel ? process.cwd() : path.resolve(__dirname, '..');
+const viewsDir = path.join(baseDir, 'views');
+const publicDir = path.join(baseDir, 'public');
 
 // Set up EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', viewsDir);
 
-// Serve static files (absolute path for Vercel compatibility)
+// Serve static files
 app.use(express.static(publicDir));
 
 // Debug: Log resolved paths on cold start
+console.log('[EvoTrek] isVercel:', isVercel);
+console.log('[EvoTrek] baseDir:', baseDir);
 console.log('[EvoTrek] views dir:', viewsDir, '| exists:', fs.existsSync(viewsDir));
 console.log('[EvoTrek] public dir:', publicDir, '| exists:', fs.existsSync(publicDir));
 if (fs.existsSync(viewsDir)) {
