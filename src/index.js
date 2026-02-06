@@ -83,7 +83,6 @@ app.use((req, res) => {
 // ===============================================
 module.exports = app;
 
-const isVercel = !!process.env.VERCEL;
 if (!isVercel) {
     const port = process.env.PORT || 5000;
     app.listen(port, () => {
