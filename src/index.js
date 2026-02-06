@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 // Initialize Express app
 const app = express();
@@ -8,42 +9,54 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Resolve paths once (absolute, works in both Vercel Lambda & local)
+const viewsDir = path.resolve(__dirname, '..', 'views');
+const publicDir = path.resolve(__dirname, '..', 'public');
+
 // Set up EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', viewsDir);
 
 // Serve static files (absolute path for Vercel compatibility)
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(publicDir));
+
+// Debug: Log resolved paths on cold start
+console.log('[EvoTrek] views dir:', viewsDir, '| exists:', fs.existsSync(viewsDir));
+console.log('[EvoTrek] public dir:', publicDir, '| exists:', fs.existsSync(publicDir));
+if (fs.existsSync(viewsDir)) {
+    console.log('[EvoTrek] views files:', fs.readdirSync(viewsDir));
+}
 
 // ===============================================
-// Static Demo Routes
+// Static Demo Routes — each wrapped in try-catch for Vercel debugging
 // ===============================================
 
-// Home / Landing Page
 app.get('/', (req, res) => {
-    res.render('home');
+    try { res.render('home'); }
+    catch (e) { console.error('/ error:', e); res.status(500).send('Render error: ' + e.message); }
 });
 
 app.get('/home', (req, res) => {
-    res.render('home');
+    try { res.render('home'); }
+    catch (e) { console.error('/home error:', e); res.status(500).send('Render error: ' + e.message); }
 });
 
-// Shopping Page
 app.get('/shopping', (req, res) => {
-    res.render('shopping');
+    try { res.render('shopping'); }
+    catch (e) { console.error('/shopping error:', e); res.status(500).send('Render error: ' + e.message); }
 });
 
-// Product View Details
 app.get('/view-details', (req, res) => {
-    res.render('view-details');
+    try { res.render('view-details'); }
+    catch (e) { console.error('/view-details error:', e); res.status(500).send('Render error: ' + e.message); }
 });
 
-// Checkout Page
 app.get('/check-out-page', (req, res) => {
-    res.render('check-out-page');
+    try { res.render('check-out-page'); }
+    catch (e) { console.error('/check-out-page error:', e); res.status(500).send('Render error: ' + e.message); }
 });
 
-// Redirect any old login/signup/profile links back to home
+// Redirect old routes to home
 app.get('/login', (req, res) => res.redirect('/'));
 app.get('/signup', (req, res) => res.redirect('/'));
 app.get('/profile', (req, res) => res.redirect('/'));
@@ -53,8 +66,8 @@ app.get('/logout', (req, res) => res.redirect('/'));
 // Error Handling
 // ===============================================
 app.use((err, req, res, next) => {
-    console.error('Error:', err.message || err);
-    res.status(500).send('Something went wrong.');
+    console.error('Express Error:', err.stack || err.message || err);
+    res.status(500).send('Server error: ' + (err.message || 'Unknown'));
 });
 
 app.use((req, res) => {
